@@ -1,0 +1,189 @@
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: Botrio;
+  src: url(assets/FontsFree-Net-Botrio.ttf);
+}
+
+$mtop: 70px;
+$primary: #ff6002;
+
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: Karla;
+  color: white;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.flex-x {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-y {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flex-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.flex-x-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  height: $mtop;
+  z-index: 100;
+  background: #291f36;
+  position: fixed;
+  top: 0;
+  padding: 0 8vw;
+  width: 100%;
+  transition: margin 0.4s ease-in, background 0.6s linear;
+}
+
+.navbar-brand {
+  cursor: pointer;
+  img {
+    width: 130px;
+    transition: all 0.1s linear;
+  }
+}
+
+.navbar-brand:hover {
+  img {
+    width: 140px;
+  }
+}
+.collapse {
+  justify-content: flex-end;
+}
+
+.navbar-nav {
+  align-items: center;
+  margin-right: 3vw;
+  > a {
+    margin: auto 10px;
+    width: 50%;
+    left: 16%;
+    font-weight: 500;
+    font-size: 120% !important;
+    position: relative;
+    margin-left: 10px;
+    text-align: left;
+  }
+  > div {
+    width: 50%;
+    left: 16%;
+    position: relative;
+    text-align: left;
+  }
+  a:hover {
+    color: $primary !important;
+  }
+}
+
+.nav-link {
+  svg {
+    width: 22px;
+    margin: 2px;
+    transition: all 0.1s linear;
+    fill: rgba(255, 255, 255, 0.705);
+  }
+  svg:hover {
+    margin: 0px;
+    width: 26px;
+    path {
+      fill: $primary !important;
+    }
+  }
+}
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+  color: $primary;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.nav-item:hover .navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+  color: $primary !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  > span {
+    font-weight: 500;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.main-body {
+  margin-top: $mtop;
+  height: calc(100vh - #{$mtop});
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .main-body {
+    height: auto;
+  }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  .navbar-toggler {
+    margin-right: -8vw;
+  }
+  .navbar-collapse {
+    background: #291f36;
+    margin-right: -8vw;
+    margin-left: -8vw;
+    .nav-link {
+      text-align: right;
+    }
+    .navbar-nav {
+      div {
+        justify-content: flex-end;
+        .nav-link {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
