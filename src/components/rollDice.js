@@ -3,7 +3,7 @@ import "./all.scss";
 import {
   DetailsCompAll,
   BorderBlock,
-  ImgIco,
+  DiceIco,
   CoinsBlock,
   Button,
   BetBlock,
@@ -126,13 +126,17 @@ const data = {
 };
 
 const coinsArr = [
-  { index: 0, element: <img src={coinsideA} />, value: 1, selected: true },
-  { index: 1, element: <ImgIco />, value: 1, selected: false },
+  { index: 0, element: <DiceIco value={1} />, value: 1, selected: true },
+  { index: 1, element: <DiceIco value={2} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={3} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={4} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={5} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={6} />, value: 1, selected: false },
 ];
 
 const buttonList = ["0.1", "0.25", "0.5", "max"];
 
-const CoinFlip = () => {
+const RollDice = () => {
   const [flipDetails, setFlipDetails] = useState(data.flipDetails);
   const [coins, setCoins] = useState(coinsArr);
   const [id, setId] = useState("0x3fder");
@@ -168,7 +172,7 @@ const CoinFlip = () => {
         onClick={() => setHistoryView(!historyView)}
         historyView={historyView}
       />
-      <div className="coin-flip flex">
+      <div className="roll-dice flex">
         <BorderBlock
           className="a"
           style={{
@@ -246,4 +250,4 @@ const CoinFlip = () => {
   );
 };
 
-export default CoinFlip;
+export default RollDice;

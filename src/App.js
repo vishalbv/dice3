@@ -7,6 +7,7 @@ import appLogo from "./assets/Group 4.svg";
 import { ReactComponent as TelegramIco } from "./assets/telegram_app (1).svg";
 import { ReactComponent as TwitterIco } from "./assets/twitter (2).svg";
 import { ReactComponent as EmailIco } from "./assets/email.svg";
+import AOS from "aos";
 
 function scrollToTargetAdjusted(id) {
   const element = document.getElementById(id);
@@ -90,6 +91,12 @@ const Header = ({ style, active = "Home" }) => {
 };
 
 function App() {
+  AOS.init({
+    duration: 800,
+    easing: "ease-in-out",
+    once: true,
+    mirror: false,
+  });
   return (
     <div className="App">
       <Router>

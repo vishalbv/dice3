@@ -24,7 +24,7 @@ const RightBlock = ({ item, index }) => {
   return (
     <div
       className="right-block flex-y"
-      onClick={() => history.push("/CoinFlip")}
+      onClick={() => history.push(`/${item.link}`)}
       style={{ marginTop: index % 2 == 0 ? "50px" : "0px" }}
     >
       <div className="flex-x">
@@ -43,13 +43,13 @@ const Home = () => {
       icon: iconA,
       heading: "Coin Flip",
       description: "Headscr tails? Fifty - Fifty Winning bet pay upto 1.98x",
-      link: "coinFlip",
+      link: "CoinFlip",
     },
     {
       icon: iconB,
       heading: "Roll a dice",
       description: "Bet on numbers 1 to 6 Winning Bet Pay upto 5.94X",
-      link: "",
+      link: "RollDice",
     },
     {
       icon: iconC,

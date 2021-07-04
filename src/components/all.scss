@@ -1,5 +1,68 @@
-.coin-flip {
-  > div {
-    margin: 30px;
+$primary: #ff6002;
+$textC: #fbfcfd;
+.coin-flip,
+.roll-dice {
+  .a {
+    .body {
+    }
   }
+  .b {
+    .header {
+      padding: 0 10px;
+      > div:first-child {
+        opacity: 0.5;
+        text-transform: uppercase;
+      }
+    }
+  }
+  > div {
+    // margin: 30px;
+  }
+}
+.wrapper {
+  padding-top: 50px;
+}
+
+.description-text {
+  opacity: 0.6;
+  font-size: 70%;
+  font-weight: 200;
+}
+.description-text1 {
+  opacity: 0.6;
+  font-size: 70%;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+
+.coin-flip,
+.roll-dice {
+  margin: 8vw;
+  margin-top: 30px;
+  > div {
+    transition: all 0.2s linear;
+  }
+  > div:first-child {
+    width: 35%;
+  }
+  > div:nth-child(2) {
+    width: 20%;
+  }
+  > div:nth-child(3) {
+    width: 35%;
+  }
+}
+
+.only-me {
+  color: $primary;
+  padding: 5px;
+  cursor: pointer;
+}
+.only-me:hover {
+  text-decoration: underline;
+}
+.only-me.active {
+  color: $primary;
+  background: #ff5f0228;
+  border-radius: 5px;
 }
