@@ -38,7 +38,10 @@ $textC: #fbfcfd;
 }
 
 .roll-two-dice .border-block.a > div {
-  padding: 10px 30px;
+  padding: 10px 30px !important;
+  .coins-block {
+    width: 80%;
+  }
 }
 
 .coin-flip,
