@@ -185,6 +185,21 @@ body {
 }
 
 @media only screen and (max-width: 1250px) {
+  .home {
+    flex-direction: column;
+    .right-block {
+      margin-top: 40px !important;
+    }
+    .left-block {
+      justify-content: space-between;
+    }
+    .left {
+      width: 90%;
+    }
+  }
+  .main-body {
+    height: auto;
+  }
 }
 
 @media only screen and (max-width: 980px) {
