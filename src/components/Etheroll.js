@@ -3,15 +3,15 @@ import "./all.scss";
 import {
   DetailsCompAll,
   BorderBlock,
-  TwoDiceIco,
+  DiceIco,
   CoinsBlock,
   Button,
   BetBlock,
+  SliderComp,
   GoBack,
   Table,
-  coinsArrRollTwoDice as coinsArr,
-} from "../components/subComponent";
-import coinIco from "../assets/Group 29.svg";
+} from "./subComponent";
+import coinIco from "../assets/Group 30.svg";
 import balanceIco from "../assets/wallet.svg";
 import coinsideA from "../assets/Clover.svg";
 
@@ -23,7 +23,7 @@ const headers = [
 ];
 
 const data = {
-  flipDetails: { coinside: 1, value: "", betValue: "" },
+  flipDetails: { coinside: 1, value: "", betValue: "", balance: "100" },
   coinDeatils: [
     {
       heading: "Winning chance",
@@ -50,48 +50,36 @@ const data = {
       bet: "1.00",
       result: "33",
       jackpot: "778",
-      resultArr: [1, 4],
-      betArr: [2, 5],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
-      resultArr: [1, 6],
-      betArr: [2],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
-      resultArr: [2, 2],
-      betArr: [1, 4, 5, 6],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
-      resultArr: [2, 5],
-      betArr: [1, 4, 5],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
-      resultArr: [1, 6],
-      betArr: [2, 4, 5],
     },
     {
       player: "0x4fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
-      resultArr: [1, 5],
-      betArr: [1],
     },
     {
       player: "0x4fder",
@@ -138,11 +126,20 @@ const data = {
   ],
 };
 
+const coinsArr = [
+  { index: 0, element: <DiceIco value={1} />, value: 1, selected: true },
+  { index: 1, element: <DiceIco value={2} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={3} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={4} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={5} />, value: 1, selected: false },
+  { index: 1, element: <DiceIco value={6} />, value: 1, selected: false },
+];
+
 const buttonList = ["0.1", "0.25", "0.5", "max"];
 
-const RollTwoDice = () => {
+const Etheroll = () => {
   const [flipDetails, setFlipDetails] = useState(data.flipDetails);
-  const [coins, setCoins] = useState(coinsArr);
+  const [draggerVal, setDraggerVal] = useState(33);
   const [id, setId] = useState("0x3fder");
   const [onlyMeSelected, setOnlyMeSelected] = useState(false);
   const [selectedVal, setSelectedVal] = useState(0);
@@ -178,7 +175,7 @@ const RollTwoDice = () => {
         onClick={() => setHistoryView(!historyView)}
         historyView={historyView}
       />
-      <div className="roll-two-dice flex">
+      <div className="Etheroll flex">
         <BorderBlock
           className="a"
           style={{
@@ -193,12 +190,17 @@ const RollTwoDice = () => {
             <div>
               <img src={balanceIco} />
               <span>
-                100 <span style={{ fontSize: "80%", opacity: "1" }}>ETH</span>
+                {flipDetails.balance}{" "}
+                <span style={{ fontSize: "80%", opacity: "1" }}>ETH</span>
               </span>
             </div>
           </div>
           <div className="body">
-            <CoinsBlock coins={coins} setCoins={setCoins} />
+            {/* <CoinsBlock coins={coins} setCoins={setCoins} /> */}
+            <SliderComp
+              value={draggerVal}
+              setDraggerVal={(val) => setDraggerVal(val)}
+            />
 
             <div className="description-text1">Choose coin side to bet on</div>
 
@@ -206,6 +208,7 @@ const RollTwoDice = () => {
               {buttonList.map((i, k) => (
                 <Button
                   key={k}
+                  balance={flipDetails.balance}
                   value={i}
                   onClick={(val) => setSelectedValCheck(+val)}
                 ></Button>
@@ -251,7 +254,7 @@ const RollTwoDice = () => {
                 headers={headers}
                 data={tableData}
                 setOpened={setOpened}
-                page="RollTwoDice"
+                page="Etheroll"
               />
             </div>
           </BorderBlock>
@@ -261,4 +264,4 @@ const RollTwoDice = () => {
   );
 };
 
-export default RollTwoDice;
+export default Etheroll;

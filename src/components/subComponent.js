@@ -2,9 +2,71 @@ import { isTerminatorless } from "@babel/types";
 import React, { Component, useState } from "react";
 import arrowIco from "../assets/arrow.svg";
 import { ReactComponent as Img5 } from "../assets/Coin.svg";
-import arrowDown from "../assets/arrow.svg";
+import arrowDown from "../assets/expand_arrow.svg";
+import TwoDiceIcon from "../assets/Dice2.svg";
+import { ReactComponent as Dragger } from "../assets/Dragger.svg";
+import coinsideA from "../assets/Clover.svg";
+import DotImg from "../assets/dot.svg";
+
+import Slider, { createSliderWithTooltip } from "rc-slider";
+import "rc-slider/assets/index.css";
 
 import "./subComponent.scss";
+
+export const ImgIco = () => {
+  return (
+    <div>
+      <Img5 />
+    </div>
+  );
+};
+
+export const DiceIco = ({ value }) => {
+  const Elements = [];
+
+  for (var i = 0; i < value; i++) {
+    Elements.push(<img src={DotImg} />);
+  }
+  return <div className={"dice dice" + value}>{Elements}</div>;
+};
+
+export const TwoDiceIco = ({ value }) => {
+  return (
+    <div className={"two-dice"}>
+      <img src={TwoDiceIcon} /> <span>{value}</span>
+    </div>
+  );
+};
+
+export const coinsArrFlip = [
+  { index: 0, element: <img src={coinsideA} />, value: 1, selected: true },
+  { index: 1, element: <ImgIco />, value: 2, selected: false },
+];
+
+export const coinsArrRollDice = [
+  { index: 0, element: <DiceIco value={1} />, value: 1, selected: true },
+  { index: 1, element: <DiceIco value={2} />, value: 2, selected: false },
+  { index: 2, element: <DiceIco value={3} />, value: 3, selected: false },
+  { index: 3, element: <DiceIco value={4} />, value: 4, selected: false },
+  { index: 4, element: <DiceIco value={5} />, value: 5, selected: false },
+  { index: 5, element: <DiceIco value={6} />, value: 6, selected: false },
+];
+
+export const coinsArrRollTwoDice = [
+  { index: 0, element: <TwoDiceIco value={1} />, value: 1, selected: true },
+  { index: 1, element: <TwoDiceIco value={2} />, value: 2, selected: false },
+  { index: 2, element: <TwoDiceIco value={3} />, value: 3, selected: false },
+  { index: 3, element: <TwoDiceIco value={4} />, value: 4, selected: false },
+  { index: 4, element: <TwoDiceIco value={5} />, value: 5, selected: false },
+  { index: 5, element: <TwoDiceIco value={6} />, value: 6, selected: false },
+  { index: 6, element: <TwoDiceIco value={7} />, value: 7, selected: false },
+  { index: 7, element: <TwoDiceIco value={8} />, value: 8, selected: false },
+  { index: 8, element: <TwoDiceIco value={9} />, value: 9, selected: false },
+  { index: 9, element: <TwoDiceIco value={10} />, value: 10, selected: false },
+  { index: 10, element: <TwoDiceIco value={11} />, value: 11, selected: false },
+  { index: 11, element: <TwoDiceIco value={12} />, value: 12, selected: false },
+];
+
 export const DetailsComp = ({ item, index }) => {
   const classes = ["a", "b", "c", "d"];
   return (
@@ -30,7 +92,7 @@ export const DetailsCompAll = ({ items, style }) => {
 
 export const GoBack = ({ onClick, historyView }) => {
   return (
-    <div className="history">
+    <div className={"history"} style={{ marginTop: historyView ? "" : "40px" }}>
       <span onClick={onClick}>
         <img
           src={arrowIco}
@@ -49,7 +111,29 @@ const rowData = {
   betTrx: "0x06bdc2d6740cc63bf8540d13543b888ac99f69809c075sdj",
 };
 
-export const Table = ({ headers, data, setOpened }) => {
+const CoinIcon = ({ data, page, type }) => {
+  let arr = [];
+  if (type == "a" && page == "RollTwoDice") return data.join();
+  switch (page) {
+    case "CoinFlip":
+      arr = coinsArrFlip;
+      break;
+    case "RollDice":
+      arr = coinsArrRollDice;
+      break;
+    case "RollTwoDice":
+      arr = coinsArrRollDice;
+      break;
+
+    default:
+      arr = [];
+      break;
+  }
+
+  return data.map((x, y) => arr.filter((i, k) => x == i.value)[0].element);
+};
+
+export const Table = ({ headers, data, setOpened, page }) => {
   return (
     <div className="table-class">
       <div className="header">
@@ -65,12 +149,30 @@ export const Table = ({ headers, data, setOpened }) => {
               key={k}
               onClick={() => setOpened(k, { ...i, opened: !i.opened })}
             >
-              {headers.map((j, l) => (
-                <div key={j}>{i[j.param]}</div>
-              ))}
+              <div>{i.player}</div>
+              <div className="flex">
+                {i.bet}
+                <div className="bet-arr">
+                  {i.betArr && (
+                    <CoinIcon data={i.betArr} page={page} type={"a"} />
+                  )}
+                </div>
+              </div>
+              <div className="flex">
+                <div className="result-arr">
+                  {i.resultArr && (
+                    <CoinIcon data={i.resultArr} page={page} type={"b"} />
+                  )}
+                </div>
+                {i.result}
+              </div>
+              <div className="last-column">{i.jackpot}</div>
+
               <img
                 src={arrowDown}
-                style={{ transform: i.opened ? "rotate(180deg)" : "" }}
+                style={{
+                  transform: i.opened ? "rotate(0deg)" : "rotate(-90deg)",
+                }}
               />
             </div>
             {i.opened && (
@@ -105,37 +207,42 @@ export const BorderBlock = ({ children, className, style }) => {
   );
 };
 
-export const ImgIco = () => {
-  return (
-    <div>
-      <Img5 />
+const SliderWithTooltip = createSliderWithTooltip(Slider);
+
+export const SliderComp = ({ value, setDraggerVal }) => (
+  <div className="slider-comp">
+    <SliderWithTooltip
+      value={[value]}
+      onChange={(val) => setDraggerVal(val)}
+      trackStyle={{
+        backgroundImage: "linear-gradient(to right, #ff6002, #c22de1)",
+        height: "30px",
+      }}
+      railStyle={{
+        height: "30px",
+        background: "#25123D",
+        border: "2px solid #9B33CD",
+      }}
+      dotStyle={{ backgroundImage: "../assets/Dragger.svg", height: "30px" }}
+      handleStyle={{ height: "15px", width: "15px" }}
+    />
+    <div className="slider-dots">
+      <span>0%</span>
+      <span>50%</span>
+      <span>100%</span>
     </div>
-  );
-};
+  </div>
+);
 
-export const DiceIco = ({ value }) => {
-  const Elements = [];
-  for (var i = 0; i < value; i++) {
-    Elements.push(
-      <>
-        <svg width={8} height={8}>
-          <circle cx="50%" cy="50%" r="4" fill={"white"} />
-        </svg>
-
-        {value == 5 && (
-          <svg width={8} height={8}>
-            <circle cx="50%" cy="50%" r="4" fill={"transparent"} />
-          </svg>
-        )}
-      </>
-    );
-  }
-  return <div className={"dice dice" + value}>{Elements}</div>;
-};
-
-export const Button = ({ value, onClick }) => {
+export const Button = ({ value, onClick, balance }) => {
   return (
-    <div className="value-button" onClick={() => onClick(value)}>
+    <div
+      className="value-button"
+      onClick={() => {
+        if (value == "max") onClick(balance);
+        else onClick(value);
+      }}
+    >
       {value}
     </div>
   );

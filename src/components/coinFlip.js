@@ -9,9 +9,10 @@ import {
   BetBlock,
   GoBack,
   Table,
+  coinsArrFlip as coinsArr,
 } from "../components/subComponent";
 import coinIco from "../assets/coins.svg";
-import balanceIco from "../assets/coins.svg";
+import balanceIco from "../assets/wallet.svg";
 import coinsideA from "../assets/Clover.svg";
 
 const headers = [
@@ -49,24 +50,32 @@ const data = {
       bet: "1.00",
       result: "33",
       jackpot: "778",
+      resultArr: [1],
+      betArr: [1],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
+      resultArr: [2],
+      betArr: [2],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
+      resultArr: [1],
+      betArr: [2],
     },
     {
       player: "0x3fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
+      resultArr: [1],
+      betArr: [2],
     },
     {
       player: "0x3fder",
@@ -125,11 +134,6 @@ const data = {
   ],
 };
 
-const coinsArr = [
-  { index: 0, element: <img src={coinsideA} />, value: 1, selected: true },
-  { index: 1, element: <ImgIco />, value: 1, selected: false },
-];
-
 const buttonList = ["0.1", "0.25", "0.5", "max"];
 
 const CoinFlip = () => {
@@ -138,7 +142,9 @@ const CoinFlip = () => {
   const [id, setId] = useState("0x3fder");
   const [onlyMeSelected, setOnlyMeSelected] = useState(false);
   const [selectedVal, setSelectedVal] = useState(0);
-  const [historyView, setHistoryView] = useState(false);
+  const [historyView, setHistoryView] = useState(
+    window.innerWidth < 900 ? true : false
+  );
   const [tableData, setTableData] = useState(data.tableDetails);
 
   const setSelectedValCheck = (val) => {
@@ -222,7 +228,7 @@ const CoinFlip = () => {
           items={data.coinDeatils}
           style={{
             // marginLeft: historyView ? "0" : "8%",
-            margin: historyView ? "auto" : "0 8%",
+            margin: historyView ? "auto" : "auto 8%",
           }}
         />
         {historyView && (
@@ -237,7 +243,12 @@ const CoinFlip = () => {
               </div>
             </div>
             <div className="body">
-              <Table headers={headers} data={tableData} setOpened={setOpened} />
+              <Table
+                headers={headers}
+                data={tableData}
+                setOpened={setOpened}
+                page="CoinFlip"
+              />
             </div>
           </BorderBlock>
         )}

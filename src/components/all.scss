@@ -1,7 +1,9 @@
 $primary: #ff6002;
 $textC: #fbfcfd;
 .coin-flip,
-.roll-dice {
+.roll-dice,
+.roll-two-dice,
+.Etheroll {
   .a {
     .body {
     }
@@ -35,10 +37,16 @@ $textC: #fbfcfd;
   margin-bottom: 15px;
 }
 
+.roll-two-dice .border-block.a > div {
+  padding: 10px 30px;
+}
+
 .coin-flip,
-.roll-dice {
+.roll-dice,
+.roll-two-dice,
+.Etheroll {
   margin: 8vw;
-  margin-top: 30px;
+  margin-top: 40px;
   > div {
     transition: all 0.2s linear;
   }
@@ -50,6 +58,70 @@ $textC: #fbfcfd;
   }
   > div:nth-child(3) {
     width: 35%;
+  }
+}
+
+// .Etheroll {
+//   > div:first-child {
+//     width: 30%;
+//   }
+//   > div:nth-child(2) {
+//     width: 20%;
+//   }
+//   > div:nth-child(3) {
+//     width: 33%;
+//   }
+// }
+
+.bet-arr {
+  margin-left: 5px;
+  color: #fbfcfd7e;
+  font-size: 80%;
+}
+.result-arr {
+  margin-right: 5px;
+  color: #fbfcfd7e;
+  font-size: 80%;
+}
+.coin-flip {
+  .bet-arr,
+  .result-arr {
+    img {
+      width: 25px;
+      height: 25px;
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+.roll-dice,
+.roll-two-dice {
+  .bet-arr {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .dice {
+      margin: 0 2px;
+      padding: 1px 1px;
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+    }
+  }
+  .result-arr {
+    display: flex;
+    .dice {
+      padding: 4px 1px;
+      width: 20px;
+      margin: 0 2px;
+
+      height: 20px;
+      border-radius: 4px;
+    }
   }
 }
 
@@ -65,4 +137,27 @@ $textC: #fbfcfd;
   color: $primary;
   background: #ff5f0228;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 980px) {
+  .coin-flip,
+  .roll-dice,
+  .roll-two-dice,
+  .Etheroll {
+    margin: 8vw;
+    margin-top: 40px;
+    flex-direction: column;
+    > div {
+      transition: all 0.2s linear;
+    }
+    > div:first-child {
+      width: 100%;
+    }
+    > div:nth-child(2) {
+      width: 100%;
+    }
+    > div:nth-child(3) {
+      width: 100%;
+    }
+  }
 }

@@ -55,13 +55,13 @@ const Home = () => {
       icon: iconC,
       heading: "Two Dice",
       description: "Bet on sum 2 to 12 Winning Bet Pay upto 35.64X",
-      link: "",
+      link: "RollTwoDice",
     },
     {
       icon: iconD,
       heading: "Etheroll",
       description: "Any win chance 1% to 97% Winning Bet Pay upto 1.98X",
-      link: "",
+      link: "Etheroll",
     },
   ];
   return (
