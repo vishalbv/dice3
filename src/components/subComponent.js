@@ -147,6 +147,7 @@ export const Table = ({ headers, data, setOpened, page }) => {
             <div
               className="item"
               key={k}
+              style={{ color: i.opened ? "#ff6d17b0" : "inherit" }}
               onClick={() => setOpened(k, { ...i, opened: !i.opened })}
             >
               <div>{i.player}</div>
