@@ -9,19 +9,7 @@ import { ReactComponent as TwitterIco } from "./assets/twitter (2).svg";
 import { ReactComponent as EmailIco } from "./assets/email.svg";
 import AOS from "aos";
 
-function scrollToTargetAdjusted(id) {
-  const element = document.getElementById(id);
-  const offset = 100;
-  const bodyRect = document.body.getBoundingClientRect().top;
-  const elementRect = element.getBoundingClientRect().top;
-  const elementPosition = elementRect - bodyRect;
-  const offsetPosition = elementPosition - offset;
-
-  window.scrollTo({
-    top: offsetPosition,
-    behavior: "smooth",
-  });
-}
+function openLink(id) {}
 
 const Header = ({ style, active = "Home" }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +25,7 @@ const Header = ({ style, active = "Home" }) => {
     <Navbar expand="lg">
       <Navbar.Brand
         onClick={() => {
-          // scrollToTargetAdjusted("token");
+          // openLink("token");
           history.push("/");
         }}
       >
@@ -48,7 +36,7 @@ const Header = ({ style, active = "Home" }) => {
         <Nav>
           <Nav.Link
             onClick={() => {
-              scrollToTargetAdjusted("home");
+              openLink("home");
             }}
             style={{ color: active == "Home" ? "#ff6002" : "inherit" }}
           >
@@ -56,7 +44,7 @@ const Header = ({ style, active = "Home" }) => {
           </Nav.Link>
           <Nav.Link
             onClick={() => {
-              scrollToTargetAdjusted("token");
+              openLink("faq");
             }}
           >
             FAQ
@@ -64,21 +52,21 @@ const Header = ({ style, active = "Home" }) => {
           <div className="flex-x">
             <Nav.Link
               onClick={() => {
-                scrollToTargetAdjusted("token");
+                openLink("token");
               }}
             >
               <TelegramIco />
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                scrollToTargetAdjusted("token");
+                openLink("token");
               }}
             >
               <TwitterIco />
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                scrollToTargetAdjusted("token");
+                openLink("token");
               }}
             >
               <EmailIco />
