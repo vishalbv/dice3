@@ -171,6 +171,17 @@ $textC: #fbfcfd;
 }
 
 @media only screen and (max-width: 980px) {
+  body {
+    font-size: 3.5vw !important;
+  }
+  .roll-two-dice .border-block.a > div:nth-child(2) {
+    height: auto;
+    max-height: inherit;
+  }
+  .two-dice {
+    width: 60px;
+  }
+
   .roll-dice .coins-block {
     width: 90% !important;
   }
