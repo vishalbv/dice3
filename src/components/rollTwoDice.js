@@ -173,7 +173,7 @@ const RollTwoDice = () => {
   }, [onlyMeSelected]);
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" style={{ paddingTop: "10px" }}>
       <GoBack
         onClick={() => setHistoryView(!historyView)}
         historyView={historyView}
