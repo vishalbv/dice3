@@ -7,6 +7,7 @@ import TwoDiceIcon from "../assets/Dice2.svg";
 import { ReactComponent as Dragger } from "../assets/Dragger.svg";
 import coinsideA from "../assets/Clover.svg";
 import DotImg from "../assets/dot.svg";
+import AvtarIco from "../assets/Coin copy.svg";
 
 import Slider, { createSliderWithTooltip } from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -39,8 +40,8 @@ export const TwoDiceIco = ({ value }) => {
 };
 
 export const coinsArrFlip = [
-  { index: 0, element: <img src={coinsideA} />, value: 1, selected: true },
-  { index: 1, element: <ImgIco />, value: 2, selected: false },
+  { index: 0, element: <ImgIco />, value: 1, selected: false },
+  { index: 1, element: <img src={coinsideA} />, value: 2, selected: true },
 ];
 
 export const coinsArrRollDice = [
@@ -150,7 +151,10 @@ export const Table = ({ headers, data, setOpened, page }) => {
               style={{ color: i.opened ? "#ff6d17b0" : "inherit" }}
               onClick={() => setOpened(k, { ...i, opened: !i.opened })}
             >
-              <div>{i.player}</div>
+              <div>
+                <img src={AvtarIco} className="avtar-ico" />
+                {i.player}
+              </div>
               <div className="flex">
                 {i.bet}
                 <div className="bet-arr">

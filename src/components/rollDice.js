@@ -185,7 +185,7 @@ const RollDice = () => {
           <div className="header flex-x-between">
             <div>
               <img src={coinIco} />
-              <span>COIN FLIP</span>
+              <span>ROLL A DICE</span>
             </div>
             <div>
               <img src={balanceIco} />

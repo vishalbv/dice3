@@ -185,7 +185,7 @@ const Etheroll = () => {
           <div className="header flex-x-between">
             <div>
               <img src={coinIco} />
-              <span>COIN FLIP</span>
+              <span>ETHEROLL</span>
             </div>
             <div>
               <img src={balanceIco} />

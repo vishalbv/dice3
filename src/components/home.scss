@@ -8,10 +8,10 @@ body {
 }
 .home {
   overflow: hidden;
-  background-image: url("../assets/Group\ 33.svg");
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background-image: url("../assets/Group\ 33.svg");
+  // background-position: center right;
+  // background-repeat: no-repeat;
+  // background-size: cover;
   margin: 0 8vw;
   height: 100%;
   .left {
@@ -78,6 +78,7 @@ body {
     color: $primary;
     font-size: 170%;
     white-space: nowrap;
+    display: flex;
 
     > span:first-child {
       font-family: Botrio;
@@ -204,7 +205,7 @@ body {
 
 @media only screen and (max-width: 980px) {
   body {
-    font-size: 12px;
+    font-size: 15px;
   }
   .home {
     flex-direction: column;
@@ -217,6 +218,7 @@ body {
       }
       > div {
         margin-bottom: 20px;
+        text-align: center;
         span {
           display: block;
         }
@@ -233,12 +235,16 @@ body {
     .left,
     .right {
       width: 100%;
-      margin-top: 40px;
+      margin: 40px 0;
     }
     .right-block {
       width: 150px;
+      height: 200px;
       padding: 5px;
       margin: 10px !important;
+      > div:nth-child(2) {
+        font-size: 175%;
+      }
     }
   }
 }
