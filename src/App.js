@@ -86,6 +86,7 @@ const Header = ({ style, languages, setLanguage, language }) => {
           onMouseLeave={() => {
             setMenuOpen(false);
           }}
+          onClick={() => setMenuOpen(!menuOpen)}
           show={menuOpen}
         >
           <div className="custom-dropdown">
