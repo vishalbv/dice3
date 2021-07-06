@@ -168,9 +168,9 @@ function App() {
     mirror: false,
   });
   const languages = [
-    { name: "english", src: Lang1 },
-    { name: "abc", src: Lang2 },
-    { name: "xyz", src: Lang3 },
+    { name: "English", src: Lang1 },
+    { name: "Russian", src: Lang2 },
+    { name: "Chinese", src: Lang3 },
   ];
   const [language, setLanguage] = useState(languages[0]);
   return (

@@ -87,7 +87,16 @@ export const DetailsCompAll = ({ items, style }) => {
   return (
     <div className="details-comp-all" style={style} data-aos="fade-in">
       {items.map((i, k) => (
-        <DetailsComp index={k} key={k} item={i} />
+        <>
+          <DetailsComp index={k} key={k} item={i} />
+          {k == 1 && (
+            <div className="only-mob-view flex-x">
+              <span>
+                {items[0].value} {items[0].param}
+              </span>
+            </div>
+          )}
+        </>
       ))}
     </div>
   );

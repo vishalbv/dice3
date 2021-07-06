@@ -143,9 +143,7 @@ const RollDice = () => {
   const [id, setId] = useState("0x3fder");
   const [onlyMeSelected, setOnlyMeSelected] = useState(false);
   const [selectedVal, setSelectedVal] = useState(0);
-  const [historyView, setHistoryView] = useState(
-    window.innerWidth < 900 ? true : false
-  );
+  const [historyView, setHistoryView] = useState(true);
   const [tableData, setTableData] = useState(data.tableDetails);
 
   const setSelectedValCheck = (val) => {

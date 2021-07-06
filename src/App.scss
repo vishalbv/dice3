@@ -231,13 +231,13 @@ body {
   > div {
     margin: 0 3vw;
     > div {
-      margin: 2px 0;
+      margin: 0px 0;
     }
   }
   padding: 10px 5vw;
   .heading {
     font-size: 110%;
-    margin: 10px 0;
+    margin: 6px 0;
   }
   .item {
     color: #ff6002;
@@ -266,7 +266,7 @@ body {
     a.nav-link {
       padding: 0px !important;
     }
-    > a:first-child,
+    > a:nth-child(2),
     a:last-child {
       display: none;
     }
