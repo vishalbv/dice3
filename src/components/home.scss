@@ -204,7 +204,16 @@ body {
   }
 }
 
+.only-mob-top {
+  display: none;
+}
 @media only screen and (max-width: 980px) {
+  .only-mob-top {
+    display: flex;
+  }
+  .only-mob-bottom {
+    display: none;
+  }
   body {
     font-size: 15px;
   }

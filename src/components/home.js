@@ -76,6 +76,11 @@ const Home = () => {
           <br />
           No sign-ups or deposits, just 1% edge jackpot
         </div>
+        <div className="right flex-wrap only-mob-top">
+          {rightBlocks.map((i, k) => (
+            <RightBlock item={i} index={k} key={k} />
+          ))}
+        </div>
         <div className="left-blocks">
           <div className="left-block a">
             <div>24h wagers</div>
@@ -123,7 +128,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="right flex-wrap">
+      <div className="right flex-wrap only-mob-bottom">
         {rightBlocks.map((i, k) => (
           <RightBlock item={i} index={k} key={k} />
         ))}
