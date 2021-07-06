@@ -244,6 +244,18 @@ body {
   }
 }
 
+@media only screen and (max-width: 300px) {
+  .home .right-block {
+    width: 60vw !important;
+    margin: auto !important;
+  }
+  .footer {
+    font-size: 60%;
+    > div {
+      text-align: center !important;
+    }
+  }
+}
 @media only screen and (max-width: 800px) {
   .nav-link {
     padding: 0px;
