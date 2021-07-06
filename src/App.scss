@@ -250,10 +250,11 @@ body {
     padding-left: 10px;
   }
   .footer {
-    font-size: 90%;
-    padding: 10px 15px;
+    font-size: 97%;
+    padding: 15px 10px !important;
     display: flex;
     flex-wrap: wrap;
+    // padding-bottom: 20px !important;
 
     .heading {
       margin-top: 10px;
