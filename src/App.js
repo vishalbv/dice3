@@ -57,7 +57,7 @@ const Header = ({ style, languages, setLanguage, language }) => {
         <div className="flex-x nav-icons">
           <Nav.Link
             onClick={() => {
-              history.push("FAQ");
+              openLink("token");
             }}
           >
             <TelegramIco />

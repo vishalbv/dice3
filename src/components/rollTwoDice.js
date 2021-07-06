@@ -23,7 +23,7 @@ const headers = [
 ];
 
 const data = {
-  flipDetails: { coinside: 1, value: "", betValue: "" },
+  flipDetails: { coinside: 1, value: "", betValue: "", balance: "100" },
   coinDeatils: [
     {
       heading: "Winning chance",
@@ -191,7 +191,8 @@ const RollTwoDice = () => {
             <div>
               <img src={balanceIco} />
               <span>
-                100 <span style={{ fontSize: "80%", opacity: "1" }}>ETH</span>
+                {flipDetails.balance}{" "}
+                <span style={{ fontSize: "80%", opacity: "1" }}>ETH</span>
               </span>
             </div>
           </div>
@@ -205,6 +206,7 @@ const RollTwoDice = () => {
                 <Button
                   key={k}
                   value={i}
+                  balance={flipDetails.balance}
                   onClick={(val) => setSelectedValCheck(+val)}
                 ></Button>
               ))}
