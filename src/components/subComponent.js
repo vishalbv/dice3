@@ -7,7 +7,7 @@ import TwoDiceIcon from "../assets/Dice2.svg";
 import { ReactComponent as Dragger } from "../assets/Dragger.svg";
 import coinsideA from "../assets/Clover.svg";
 import DotImg from "../assets/dot.svg";
-import AvtarIco from "../assets/Coin copy.svg";
+import AvtarIco from "../assets/avatar.svg";
 
 import Slider, { createSliderWithTooltip } from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -221,15 +221,16 @@ export const SliderComp = ({ value, setDraggerVal }) => (
       onChange={(val) => setDraggerVal(val)}
       trackStyle={{
         backgroundImage: "linear-gradient(to right, #ff6002, #c22de1)",
-        height: "30px",
+        height: "44px",
+        borderRadius: "10px",
       }}
       railStyle={{
-        height: "30px",
+        height: "44px",
         background: "#25123D",
         border: "2px solid #9B33CD",
+        borderRadius: "10px",
       }}
-      dotStyle={{ backgroundImage: "../assets/Dragger.svg", height: "30px" }}
-      handleStyle={{ height: "15px", width: "15px" }}
+      handleStyle={{ height: "24px", width: "24px" }}
     />
     <div className="slider-dots">
       <span>0%</span>

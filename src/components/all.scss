@@ -179,7 +179,7 @@ $textC: #fbfcfd;
     max-height: inherit;
   }
   .two-dice {
-    width: 60px;
+    width: 18vw;
   }
 
   .roll-dice .coins-block {
@@ -187,6 +187,7 @@ $textC: #fbfcfd;
   }
   .wrapper {
     font-size: 115%;
+    padding-top: 2px !important;
   }
   .coin-flip,
   .roll-dice,

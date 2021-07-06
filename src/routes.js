@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 // import logo from "./logo.svg";
 // import "./App.scss";
 
@@ -20,7 +20,12 @@ const PageNotFound = () => {
   return <h1>Page Not Found</h1>;
 };
 
-const Routes = () => {
+const Routes = ({ location }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log("ds");
+  }, [location]);
+
   return (
     <div className="main-body">
       <Switch>

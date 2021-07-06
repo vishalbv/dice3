@@ -8,18 +8,26 @@ import { ReactComponent as TelegramIco } from "./assets/telegram_app (1).svg";
 import { ReactComponent as TwitterIco } from "./assets/twitter (2).svg";
 import { ReactComponent as EmailIco } from "./assets/email.svg";
 import AOS from "aos";
+import Lang1 from "./assets/us.026a8970.svg";
+import Lang2 from "./assets/download (1).svg";
+import Lang3 from "./assets/cn.d09f389e.svg";
 
 function openLink(id) {}
 
-const Header = ({ style, active = "Home" }) => {
+const Header = ({
+  style,
+  active = "Home",
+  languages,
+  setLanguage,
+  language,
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const history = useHistory();
-  // const DropdownTitle = (
-  //   <span>
-  //     Links
-  //     <img src={downIco} style={{ marginLeft: "10px", width: "10px" }} />
-  //   </span>
-  // );
+  const DropdownTitle = (
+    <span>
+      <img src={language.src} style={{ marginLeft: "10px", width: "25px" }} />
+    </span>
+  );
 
   return (
     <Navbar expand="lg">
@@ -72,6 +80,32 @@ const Header = ({ style, active = "Home" }) => {
               <EmailIco />
             </Nav.Link>
           </div>
+          <NavDropdown
+            title={DropdownTitle}
+            id="basic-nav-dropdown-1"
+            onMouseEnter={() => {
+              setMenuOpen(true);
+            }}
+            onMouseLeave={() => {
+              setMenuOpen(false);
+            }}
+            show={menuOpen}
+          >
+            <div className="custom-dropdown">
+              {languages.map((i, k) => (
+                <NavDropdown.Item
+                  key={k}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setLanguage(i);
+                  }}
+                >
+                  <img src={i.src} style={{ margin: "10px", width: "25px" }} />
+                  {i.name}
+                </NavDropdown.Item>
+              ))}
+            </div>
+          </NavDropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -85,10 +119,20 @@ function App() {
     once: true,
     mirror: false,
   });
+  const languages = [
+    { name: "english", src: Lang1 },
+    { name: "abc", src: Lang2 },
+    { name: "xyz", src: Lang3 },
+  ];
+  const [language, setLanguage] = useState(languages[0]);
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header
+          language={language}
+          setLanguage={setLanguage}
+          languages={languages}
+        />
 
         <Switch>
           <Routes />

@@ -148,6 +148,24 @@ body {
     }
   }
 }
+.dropdown {
+  img {
+    width: 20px;
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
+}
+.dropdown-menu {
+  background: #291f36;
+  right: 0;
+  .dropdown-item {
+    color: aliceblue;
+  }
+  .dropdown-item:hover {
+    background: #1e152c;
+  }
+}
 
 .navbar-light .navbar-nav .show > .nav-link,
 .navbar-light .navbar-nav .active > .nav-link,
