@@ -70,19 +70,19 @@ const data = {
       jackpot: "778",
     },
     {
-      player: "0x3fder",
+      player: "0x3f3der",
       bet: "1.00",
       result: "33",
       jackpot: "778",
     },
     {
-      player: "0x4fder",
+      player: "03x4fder",
       bet: "1.00",
       result: "33",
       jackpot: "778",
     },
     {
-      player: "0x4fder",
+      player: "0x4f3der",
       bet: "1.00",
       result: "33",
       jackpot: "778",

@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import CoinFlip from "./components/coinFlip";
 import Etheroll from "./components/Etheroll";
+import Faq from "./components/faq";
 
 import Home from "./components/home";
 import RollDice from "./components/rollDice";
@@ -35,6 +36,7 @@ const Routes = ({ location }) => {
         <Route exact path="/RollDice" component={RollDice} />
         <Route exact path="/RollTwoDice" component={RollTwoDice} />
         <Route exact path="/Etheroll" component={Etheroll} />
+        <Route exact path="/FAQ" component={Faq} />
 
         <Route exact path="*" render={() => <Redirect to="/404" />} />
         <Route path="/404" component={PageNotFound} />

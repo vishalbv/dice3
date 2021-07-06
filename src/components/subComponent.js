@@ -14,6 +14,8 @@ import "rc-slider/assets/index.css";
 
 import "./subComponent.scss";
 
+export const openLink = (link) => {};
+
 export const ImgIco = () => {
   return (
     <div>
@@ -152,7 +154,10 @@ export const Table = ({ headers, data, setOpened, page }) => {
               onClick={() => setOpened(k, { ...i, opened: !i.opened })}
             >
               <div>
-                <img src={AvtarIco} className="avtar-ico" />
+                <img
+                  src={`https://avatars.dicebear.com/api/identicon/${i.player}.svg`}
+                  className="avtar-ico"
+                />
                 {i.player}
               </div>
               <div className="flex">

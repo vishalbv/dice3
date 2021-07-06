@@ -170,6 +170,41 @@ $textC: #fbfcfd;
   border-radius: 5px;
 }
 
+.faq {
+  text-align: left;
+  margin: 8vw;
+  color: #fbfcfdc0;
+  .faq-block {
+    margin: 25px 0;
+  }
+  .ans-arr {
+    > div {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
+  .faq-dot {
+    margin-right: 10px;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, #ff6002, #c22de1);
+    display: inline-block;
+  }
+  .qn {
+    font-weight: 600;
+    font-size: 130%;
+    margin-bottom: 5px;
+  }
+  .ans {
+    color: #fbfcfd7e;
+    > div {
+      margin: 9px 0;
+    }
+  }
+}
 @media only screen and (max-width: 980px) {
   body {
     font-size: 3.5vw !important;
